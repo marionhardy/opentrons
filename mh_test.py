@@ -94,7 +94,7 @@ containers.create(
 
 tiprack = containers.load('tiprack-200ul', 'A1')
 imaging_plate = containers.load('96_flat_imaging','B1') # [!WARN!] This container doesn't exist by default. You'll need to upload "create_new_containers.py" to the OT-1 app at least once before uploading this protocol.
-cell_culture = containers.load('24-well-plate', 'C1')
+cell_culture = containers.load('24-well-plate', 'C1') 
 trash = containers.load('tiprack-200ul', 'A2') # [!INFO!] This is just a trash can. I suggest calibrating this to the middle of the container. It's only ever going to dispense in "A1"
 stain = containers.load('tube-rack-2ml', 'B2') # [!INFO!] This is any type of media container you want, tube, trough, or bottle. It only ever draws from the point you calibrate. It's defined as a tube rack so that the tip clears the surface before drawing it's air gap.
 
