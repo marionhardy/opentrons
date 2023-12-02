@@ -8,6 +8,11 @@ p = player.SmoothiePlayer_2_0_0()   # the Player will save the GCode commmands
 robot.set_connection('simulate_switches')  # set the Robot to simulate your commands
 robot._driver.record_start(p)   # start recording to the Player
 
+# Customize this
+
+first_available_tip_slot = 'A1'
+num_wells = 24
+
 # PART TWO
 from opentrons import containers, instruments 
 
@@ -93,7 +98,7 @@ trash = containers.load('tiprack-200ul', 'A2') # [!INFO!] This is just a trash c
 stain = containers.load('tube-rack-2ml', 'B2') # [!INFO!] This is any type of media container you want, tube, trough, or bottle. It only ever draws from the point you calibrate. It's defined as a tube rack so that the tip clears the surface before drawing it's air gap.
 
 # pipettes
-pipette = instruments.Pipette(axis='b', max_volume=200, tip_racks=[tiprack]) # pipetting in all B wells
+pipette = instruments.Pipette(axis='a', max_volume=200, tip_racks=[tiprack]) # pipetting in all B wells
 pipette.starting_tip = tiprack.well(tiprack_starting_tip)
 
 # Initialize SterilePipetting instance
