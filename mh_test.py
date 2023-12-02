@@ -10,8 +10,8 @@ robot._driver.record_start(p)   # start recording to the Player
 
 # Customize this
 
-first_available_tip_slot = 'A1'
-num_wells = 24
+tiprack_starying_tip = 'A1' # of the cell culture plate (metal + eppendorfs)
+num_wells = 10
 
 # PART TWO
 from opentrons import containers, instruments 
@@ -91,6 +91,7 @@ containers.create(
     depth=8.4
 )
 
+
 tiprack = containers.load('tiprack-200ul', 'A1')
 imaging_plate = containers.load('96_flat_imaging','B1') # [!WARN!] This container doesn't exist by default. You'll need to upload "create_new_containers.py" to the OT-1 app at least once before uploading this protocol.
 cell_culture = containers.load('24-well-plate', 'C1')
@@ -98,13 +99,13 @@ trash = containers.load('tiprack-200ul', 'A2') # [!INFO!] This is just a trash c
 stain = containers.load('tube-rack-2ml', 'B2') # [!INFO!] This is any type of media container you want, tube, trough, or bottle. It only ever draws from the point you calibrate. It's defined as a tube rack so that the tip clears the surface before drawing it's air gap.
 
 # pipettes
-pipette = instruments.Pipette(axis='a', max_volume=200, tip_racks=[tiprack]) # pipetting in all B wells
-pipette.starting_tip = tiprack.well(tiprack_starting_tip)
+pipette = instruments.Pipette(axis='b', max_volume=200, tip_racks=[tiprack]) # axis b means using the b motor (first pipette)
+pipette.starting_tip = tiprack.well(tiprack_starting_tip) # this is useless, nothing changes
 
 # Initialize SterilePipetting instance
 sterile_pipetting = SterilePipetting(pipette, trash)
 
-robot.move_to(location=imaging_plate[0]) # should move to the robot A1 position, plate well A1 position
+robot.move_to(location=imaging_plate[0]) # should move to the robot A1 position, plate well A1 position (it's off by 1row and 1 column for some reason)
 
 # pipette in cells
 for i, (source, destination) in enumerate(zip(cell_culture.wells(), imaging_plate.wells())):

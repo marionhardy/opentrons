@@ -13,7 +13,7 @@ robot._driver.record_start(p)   # start recording to the Player
 # PART TWO
 from opentrons import containers, instruments
 first_available_tip_slot = 'A1'
-num_wells = 24
+num_wells = 24 
 
 class SterilePipetting:
     def __init__(self, pipette, trash):
@@ -109,5 +109,6 @@ for i, (_, destination) in enumerate(zip(cell_culture.wells(), imaging_plate.wel
  
 #PART THREE
 robot._driver.record_stop()   # stop recording
+
 robot.set_connection('live')  # set the connection to be the physical OT-One
 robot._driver.play(p)         # save the GCode commands to the a file on the OT-One and start
