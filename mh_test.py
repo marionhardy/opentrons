@@ -1,4 +1,4 @@
-from opentrons import robot
+from opentrons import robot # This is the (old) API for the OT-1 pipetter
 robot.connect(robot.get_serial_ports_list()[0])
 robot.home()
 
@@ -9,9 +9,7 @@ robot.set_connection('simulate_switches')  # set the Robot to simulate your comm
 robot._driver.record_start(p)   # start recording to the Player
 
 # PART TWO
-from opentrons import containers, instruments
-first_available_tip_slot = 'A3'
-num_wells = 1
+from opentrons import containers, instruments 
 
 class SterilePipetting:
     def __init__(self, pipette, trash):
@@ -95,24 +93,22 @@ trash = containers.load('tiprack-200ul', 'A2') # [!INFO!] This is just a trash c
 stain = containers.load('tube-rack-2ml', 'B2') # [!INFO!] This is any type of media container you want, tube, trough, or bottle. It only ever draws from the point you calibrate. It's defined as a tube rack so that the tip clears the surface before drawing it's air gap.
 
 # pipettes
-pipette = instruments.Pipette(axis='b', max_volume=200, tip_racks=[tiprack])
-pipette.starting_tip = tiprack.well(first_available_tip_slot)
+pipette = instruments.Pipette(axis='b', max_volume=200, tip_racks=[tiprack]) # pipetting in all B wells
+pipette.starting_tip = tiprack.well(tiprack_starting_tip)
 
 # Initialize SterilePipetting instance
 sterile_pipetting = SterilePipetting(pipette, trash)
 
-robot.move_to(location=imaging_plate[0])
-
-
+robot.move_to(location=imaging_plate[0]) # should move to the robot A1 position, plate well A1 position
 
 # pipette in cells
-volume = 50
 for i, (source, destination) in enumerate(zip(cell_culture.wells(), imaging_plate.wells())):
     if i > (num_wells - 1): break
     sterile_pipetting.transfer(volume, source, destination, mix_before=True)
     
     
-#PART THREE
+#PART THREE: send your shit to OT-1
+
 robot._driver.record_stop()   # stop recording
 robot.set_connection('live')  # set the connection to be the physical OT-One
 robot._driver.play(p)         # save the GCode commands to the a file on the OT-One and start
