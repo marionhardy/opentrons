@@ -1,0 +1,100 @@
+{
+    "data": {
+        "b:Pipette": {
+            "max_volume": 165,
+            "calibration_data": {
+                "A1": {
+                    "children": {
+                        "tiprack-200ul_accurate": {
+                            "type": "tiprack-200ul_accurate",
+                            "delta": "{\"y\": 7.75, \"x\": 25.5, \"z\": -42.5}"
+                        },
+                        "tube-rack-2ml": {
+                            "type": "tube-rack-2ml",
+                            "delta": "{\"y\": 51.25, \"x\": 138.0, \"z\": 100.0}"
+                        },
+                        "tiprack-200ul": {
+                            "type": "tiprack-200ul",
+                            "delta": "{\"y\": -6.09, \"x\": 14.259999999999998, \"z\": -41.5}"
+                        }
+                    }
+                },
+                "B1": {
+                    "children": {
+                        "tiprack-200ul": {
+                            "type": "tiprack-200ul",
+                            "delta": "{\"y\": -5.59, \"x\": 14.760000000000005, \"z\": -47.0}"
+                        },
+                        "96_flat_imaging": {
+                            "type": "96_flat_imaging",
+                            "delta": "{\"y\": 16.44999999999999, \"x\": 34.80000000000001, \"z\": -43.5}"
+                        },
+                        "tiprack-200ul_accurate": {
+                            "type": "tiprack-200ul_accurate",
+                            "delta": "{\"y\": 8.25, \"x\": -65.5, \"z\": -41.5}"
+                        },
+                        "tube-rack-2ml": {
+                            "type": "tube-rack-2ml",
+                            "delta": "{\"y\": 51.25, \"x\": 47.0, \"z\": 80.0}"
+                        },
+                        "96-well-plate-20mm": {
+                            "type": "96-well-plate-20mm",
+                            "delta": "{\"y\": -6.2899999999999885, \"x\": 14.260000000000005, \"z\": -45.5}"
+                        },
+                        "96-flat": {
+                            "type": "96-flat",
+                            "delta": "{\"y\": -5.7899999999999885, \"x\": 13.560000000000002, \"z\": -48.69999999999999}"
+                        }
+                    }
+                },
+                "B2": {
+                    "children": {
+                        "tube-rack-2ml": {
+                            "type": "tube-rack-2ml",
+                            "delta": "{\"y\": -6.75, \"x\": 16.0, \"z\": -40.0}"
+                        },
+                        "point": {
+                            "type": "point",
+                            "delta": "{\"y\": 63.25, \"x\": 63.0, \"z\": -47.5}"
+                        }
+                    }
+                },
+                "C1": {
+                    "children": {
+                        "tube-rack-2ml": {
+                            "type": "tube-rack-2ml",
+                            "delta": "{\"y\": 51.25, \"x\": -44.0, \"z\": 60.0}"
+                        },
+                        "24-well-plate": {
+                            "type": "24-well-plate",
+                            "delta": "{\"y\": -4.75, \"x\": 14.330000000000013, \"z\": -44.0}"
+                        }
+                    }
+                },
+                "D2": {
+                    "children": {
+                        "tiprack-200ul_accurate": {
+                            "type": "tiprack-200ul_accurate",
+                            "delta": "{\"y\": 12.25, \"x\": 27.5, \"z\": -30.0}"
+                        },
+                        "tiprack-200ul": {
+                            "type": "tiprack-200ul",
+                            "delta": "{\"y\": -3.5900000000000034, \"x\": 15.759999999999991, \"z\": -32.0}"
+                        },
+                        "point": {
+                            "type": "point",
+                            "delta": "{\"y\": 67.25, \"x\": 61.0, \"z\": 20.0}"
+                        }
+                    }
+                }
+            },
+            "positions": {
+                "drop_tip": 25.6,
+                "bottom": 18.6,
+                "top": 5.0,
+                "blow_out": 20.6
+            }
+        }
+    },
+    "version": 1
+}
